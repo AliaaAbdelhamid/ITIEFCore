@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Demo.Models
 {
-	internal class Department
+	public class Department
 	{
 		public int DeptId { get; set; }
 
@@ -17,15 +17,15 @@ namespace Demo.Models
 
 		public int Serial { get; set; }
 
-    	[InverseProperty(nameof(Employee.ManagedDepartment))]
-		public Employee Manager { get; set; } = null!;
+		[InverseProperty(nameof(Employee.ManagedDepartment))]
+		public virtual Employee Manager { get; set; } = null!;
 
 		public int? DeptManagerId { get; set; }
 
 		// Navigation Property [One]
 		// Department Contains Many Employees
 		[InverseProperty(nameof(Employee.EmployeeDepartment))]
-		public ICollection<Employee> Employees { get; set; } = new HashSet<Employee>();
+		public virtual ICollection<Employee> Employees { get; set; } = new HashSet<Employee>();
 
 	}
 }

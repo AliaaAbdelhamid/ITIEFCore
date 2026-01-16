@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Demo.Models
 {
-	internal class Student
+	public class Student
 	{
 		public int StudentId { get; set; }
 		public string? SName { get; set; }
 
 		[InverseProperty(nameof(StudentCourse.Student))]
-		public ICollection<StudentCourse> StdCourses { get; set; } = new HashSet<StudentCourse>();
+		public virtual ICollection<StudentCourse> StdCourses { get; set; } = new HashSet<StudentCourse>();
 	}
 }

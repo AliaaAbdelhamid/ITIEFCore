@@ -20,6 +20,7 @@ namespace Demo.DbContexts
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer("Server = .; Database = CompanyDb ; Trusted_Connection = true; TrustServerCertificate=true");
+			optionsBuilder.UseLazyLoadingProxies();
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)

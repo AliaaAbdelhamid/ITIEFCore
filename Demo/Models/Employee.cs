@@ -10,7 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Demo.Models
 {
-	internal class Employee
+	public class Employee
 	{
 		public int EmpId { get; set; }
 		public string? EmpName { get; set; }
@@ -25,18 +25,18 @@ namespace Demo.Models
 		// Navigation Property [One]
 		// Ef Core -> Employee May Be Manage One Department [Optional]
 		[InverseProperty(nameof(Department.Manager))]
-		public Department? ManagedDepartment { get; set; } = null!;
+		public virtual Department? ManagedDepartment { get; set; } = null!;
 		public Address Address { get; set; } = null!;
 
 		// Navigation Property [One]
 		// Each Employee Must Work In One Department 
 		[InverseProperty(nameof(Department.Employees))]
-		public Department EmployeeDepartment { get; set; } = null!;
+		public virtual Department EmployeeDepartment { get; set; } = null!;
 
 		[ForeignKey(nameof(EmployeeDepartment))]
 		public int? DepartmentId { get; set; }
 
 		[InverseProperty(nameof(EmployeeProject.Employee))]
-		public EmployeeProject? EmployeeProject { get; set; } 
+		public virtual EmployeeProject? EmployeeProject { get; set; }
 	}
 }

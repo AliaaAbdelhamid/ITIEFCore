@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace Demo.Models
 {
-	internal class StudentCourse
+	public class StudentCourse
 	{
 		public int Grade { get; set; }
 
 		[InverseProperty(nameof(Student.StdCourses))]
-		public Student Student { get; set; } = null!;
+		public virtual Student Student { get; set; } = null!;
 
 		[ForeignKey(nameof(Student))]
 		public int StudentId { get; set; }
 
 
-		[InverseProperty	(nameof(Course.CrStudents))]
-		public Course Course { get; set; } = null!;
-	
+		[InverseProperty(nameof(Course.CrStudents))]
+		public virtual Course Course { get; set; } = null!;
+
 		[ForeignKey(nameof(Course))]
 		public int CourseId { get; set; }
 	}

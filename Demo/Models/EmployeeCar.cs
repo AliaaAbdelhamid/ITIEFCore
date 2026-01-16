@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Demo.Models
 {
-	internal class EmployeeCar
+	public class EmployeeCar
 	{
 		public int EmployeeId { get; set; }
-		public Employee Employee { get; set; } = null!;
+		public virtual Employee Employee { get; set; } = null!;
 
 		public int CarId { get; set; }
-		public Car Car { get; set; } = null!;
+		public virtual Car Car { get; set; } = null!;
 	}
 }
